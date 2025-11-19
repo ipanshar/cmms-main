@@ -72,7 +72,7 @@ We'd love to have **new contributors**, so feel free to join us!
 
 ### Set environment variables
 
-Download this file [.env.example](.env.example), rename it to `.env` and configure the environment variables inside it.
+Download this file [.env.example](.env), rename it to `.env` and configure the environment variables inside it.
 Do not delete the .env file
 
 | Name                        | Required | Description                                                                                                                                                                                                                                                                                                 | Default Value         |
