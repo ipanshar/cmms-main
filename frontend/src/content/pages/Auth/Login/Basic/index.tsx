@@ -14,13 +14,7 @@ import useAuth from 'src/hooks/useAuth';
 import JWTLogin from '../LoginJWT';
 import { useTranslation } from 'react-i18next';
 import Logo from 'src/components/LogoSign';
-
-const icons = {
-  Auth0: '/static/images/logo/auth0.svg',
-  FirebaseAuth: '/static/images/logo/firebase.svg',
-  JWT: '/static/images/logo/jwt.svg',
-  Amplify: '/static/images/logo/amplify.svg'
-};
+import { useBrand } from 'src/hooks/useBrand';
 
 const CardImg = styled(Card)(
   ({ theme }) => `
@@ -71,6 +65,14 @@ const TopWrapper = styled(Box)(
 function LoginBasic() {
   const { method } = useAuth() as any;
   const { t }: { t: any } = useTranslation();
+  const { logo } = useBrand();
+
+  const icons = {
+    Auth0: logo.dark,
+    FirebaseAuth: logo.dark,
+    JWT: logo.dark,
+    Amplify: logo.dark
+  };
 
   return (
     <>

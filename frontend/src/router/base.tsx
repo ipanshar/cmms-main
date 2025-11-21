@@ -13,6 +13,7 @@ const Loader = (Component) => (props) =>
 // Pages
 
 const Overview = Loader(lazy(() => import('../content/overview')));
+const Auth = Loader(lazy(() => import('../content/auth')));
 const Pricing = Loader(lazy(() => import('../content/pricing')));
 const TermsOfService = Loader(
   lazy(() => import('../content/terms-of-service'))
@@ -41,6 +42,10 @@ const baseRoutes = [
   {
     path: '/',
     element: <Overview />
+  },
+  {
+    path: 'auth',
+    element: <Auth />
   },
   {
     path: 'pricing',

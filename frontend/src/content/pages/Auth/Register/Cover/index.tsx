@@ -53,7 +53,7 @@ const SidebarWrapper = styled(Box)(
   top: 0;
   height: 100%;
   width: 500px;
-  background: ${theme.colors.gradients.blue3};
+  background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
 `
 );
 
@@ -156,37 +156,37 @@ function RegisterCover() {
   const [searchParams, setSearchParams] = useSearchParams();
   const { logo } = useBrand();
   const icons = {
-    Atlas: logo.dark,
-    FirebaseAuth: '/static/images/logo/firebase.svg',
-    JWT: '/static/images/logo/jwt.svg',
-    Amplify: '/static/images/logo/amplify.svg'
+    Brand: logo.dark,
+    FirebaseAuth: logo.dark,
+    JWT: logo.dark,
+    Amplify: logo.dark
   };
 
   const sliders = [
     {
       title: 'request_system',
       description: 'work-requests.checks.0',
-      image: icons.Atlas
+      image: icons.Brand
     },
     {
       title: 'eam.title',
       description: 'eam.description.short',
-      image: icons.Atlas
+      image: icons.Brand
     },
     {
       title: 'preventive_maintenance',
       description: 'pm.descriptions.0',
-      image: icons.Atlas
+      image: icons.Brand
     },
     {
       title: 'work_orders',
       description: 'work-orders.description.short',
-      image: icons.Atlas
+      image: icons.Brand
     },
     {
       title: 'parts_inventory',
       description: 'part.description.short',
-      image: icons.Atlas
+      image: icons.Brand
     }
   ];
   return (
@@ -210,16 +210,14 @@ function RegisterCover() {
                   <ChevronRightTwoToneIcon fontSize="large" />
                 </SwipeIndicator>
               </Box>
-              <TypographyPrimary
-                align="center"
-                variant="h3"
-                sx={{
-                  mb: 4,
-                  px: 8
-                }}
+              <Box
+                alignItems="center"
+                display="flex"
+                justifyContent="center"
+                sx={{ mb: 4, px: 8 }}
               >
-                {t('perfect_tool')}
-              </TypographyPrimary>
+                <img src={logo.dark} alt="Шинлайн" height={56} />
+              </Box>
               <SwiperWrapper>
                 <Swiper
                   spaceBetween={30}
@@ -242,7 +240,7 @@ function RegisterCover() {
                         <CardImg>
                           <img
                             height={80}
-                            alt="JSON Web Token"
+                            alt="Шинлайн"
                             src={slider.image}
                           />
                         </CardImg>

@@ -12,7 +12,6 @@ import AppInit from './components/AppInit';
 import { CustomSnackBarProvider } from './contexts/CustomSnackBarContext';
 import ReactGA from 'react-ga4';
 import {
-  customLogoPaths,
   googleTrackingId,
   IS_LOCALHOST,
   isWhiteLabeled
@@ -97,7 +96,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (customLogoPaths && isLicenseValid) {
+    if (logo.dark) {
       let link: HTMLLinkElement = document.querySelector("link[rel~='icon']");
       if (!link) {
         link = document.createElement('link');
@@ -106,7 +105,7 @@ function App() {
       }
       link.href = logo.dark;
     }
-  }, [logo.dark, isLicenseValid]);
+  }, [logo.dark]);
 
   return (
     <ThemeProvider>
