@@ -428,6 +428,7 @@ function Roles() {
       description: t('actions'),
       getActions: (params: GridRowParams<Role>) => {
         let actions = [
+          // @ts-ignore
           <GridActionsCellItem
             key="edit"
             disabled={!hasFeature(PlanFeature.ROLE)}
@@ -439,7 +440,9 @@ function Roles() {
             }
             onClick={() => handleOpenUpdate(Number(params.id))}
             label={t('edit')}
+            showInMenu={false}
           />,
+          // @ts-ignore
           <GridActionsCellItem
             key="delete"
             disabled={!hasFeature(PlanFeature.ROLE)}
@@ -451,6 +454,7 @@ function Roles() {
             }
             onClick={() => handleOpenDelete(Number(params.id))}
             label={t('to_delete')}
+            showInMenu={false}
           />
         ];
         if (params.row.code !== 'USER_CREATED') actions = [];

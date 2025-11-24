@@ -332,19 +332,23 @@ const People = ({ openModal, handleCloseModal }: PropsType) => {
       description: t('actions'),
       getActions: (params: GridRowParams<OwnUser>) => {
         let actions = [
+          // @ts-ignore
           <GridActionsCellItem
             key="edit"
             icon={<EditTwoToneIcon fontSize="small" color={'primary'} />}
             onClick={() => handleOpenUpdate(Number(params.id))}
             label={t('edit')}
+            showInMenu={false}
           />,
           ...(params.row.enabled && !params.row.ownsCompany
             ? [
+                // @ts-ignore
                 <GridActionsCellItem
                   key="disable"
                   icon={<CancelIcon fontSize="small" color={'error'} />}
                   onClick={() => handleOpenDisable(Number(params.id))}
                   label={t('disable')}
+                  showInMenu={false}
                 />
               ]
             : [])

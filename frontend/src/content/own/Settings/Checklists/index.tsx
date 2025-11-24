@@ -96,6 +96,7 @@ function Checklists() {
       headerName: t('actions'),
       description: t('actions'),
       getActions: (params: GridRowParams<Checklist>) => [
+        // @ts-ignore
         <GridActionsCellItem
           key="delete"
           icon={<DeleteTwoToneIcon fontSize="small" color="error" />}
@@ -104,6 +105,7 @@ function Checklists() {
             setOpenDelete(true);
           }}
           label="Remove Checklist"
+          showInMenu={false}
         />
       ]
     }

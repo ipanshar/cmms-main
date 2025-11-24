@@ -308,6 +308,7 @@ function Locations() {
       description: t('actions'),
       getActions: (params: GridRowParams) => {
         let actions = [
+          // @ts-ignore
           <GridActionsCellItem
             key="edit"
             icon={<EditTwoToneIcon fontSize="small" color="primary" />}
@@ -316,7 +317,9 @@ function Locations() {
               handleOpenUpdate();
             }}
             label={t('edit')}
+            showInMenu={false}
           />,
+          // @ts-ignore
           <GridActionsCellItem
             key="delete"
             icon={<DeleteTwoToneIcon fontSize="small" color="error" />}
@@ -325,6 +328,7 @@ function Locations() {
               setOpenDelete(true);
             }}
             label={'to_delete'}
+            showInMenu={false}
           />
         ];
         if (!hasEditPermission(PermissionEntity.LOCATIONS, params.row)) {

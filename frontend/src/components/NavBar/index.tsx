@@ -60,17 +60,18 @@ export default function NavBar() {
         <Stack direction="row" alignItems="center">
           <Box alignItems={'center'}>
             <Logo />
-            {/* {!isWhiteLabeled && (
+             {!isWhiteLabeled && (
               <Typography
-                style={{ cursor: 'pointer' }}
+                style={{ cursor: 'pointer', color: '#dc2626' }}
                 fontSize={13}
+
                 onClick={() => {
-                  window.open('https://www.intel-loop.com/', '_blank');
+                  window.open('https://shin-line.com', '_blank');
                 }}
               >
-                Powered by Intelloop
+                Shin-Line Global
               </Typography>
-            )} */}
+            )} 
           </Box>
           <Stack
             direction="row"

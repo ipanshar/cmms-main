@@ -61,11 +61,13 @@ const AssetParts = ({ asset }: PropsType) => {
       description: t('actions'),
       getActions: (params: GridRowParams) => {
         let actions = [
+          // @ts-ignore
           <GridActionsCellItem
             key="delete"
             icon={<DeleteTwoToneIcon fontSize="small" color="error" />}
             onClick={() => handleDelete(Number(params.id))}
             label="Remove part"
+            showInMenu={false}
           />
         ];
         if (!hasEditPermission(PermissionEntity.ASSETS, asset)) actions.shift();

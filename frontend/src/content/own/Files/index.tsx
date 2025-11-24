@@ -196,17 +196,21 @@ function Files() {
       description: t('actions'),
       getActions: (params: GridRowParams<File>) => {
         let actions = [
+          // @ts-ignore
           <GridActionsCellItem
             key="rename"
             icon={<EditTwoToneIcon fontSize="small" color="primary" />}
             onClick={() => handleRename(Number(params.id))}
             label={t('rename')}
+            showInMenu={false}
           />,
+          // @ts-ignore
           <GridActionsCellItem
             key="delete"
             icon={<DeleteTwoToneIcon fontSize="small" color="error" />}
             onClick={() => handleOpenDelete(Number(params.id))}
             label={t('to_delete')}
+            showInMenu={false}
           />
         ];
         if (!hasEditPermission(PermissionEntity.FILES, params.row)) {

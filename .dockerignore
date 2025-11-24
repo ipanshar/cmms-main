@@ -1,0 +1,40 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Docker
+docker-compose.yml
+Dockerfile
+.dockerignore
+
+# Документация
+README.md
+*.MD
+*.pdf
+docs
+dev-docs
+images
+
+# CI/CD
+.github
+.gitlab-ci.yml
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# Логи
+*.log
+
+# Временные файлы
+*.tmp
+.DS_Store
+
+# Node modules (если есть в корне)
+node_modules
+
+# Nazar folder
+Nazar

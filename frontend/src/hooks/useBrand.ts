@@ -16,13 +16,13 @@ interface BrandConfig extends BrandRawConfig {
 }
 export function useBrand(): BrandConfig {
   const defaultBrand: Omit<BrandConfig, 'logo'> = {
-    name: 'Atlas CMMS',
-    shortName: 'Atlas',
-    website: 'https://www.atlas-cmms.com',
-    mail: 'contact@atlas-cmms.com',
-    phone: '+212 6 30 69 00 50',
-    addressStreet: '410, Boulevard Zerktouni, Hamad, №1',
-    addressCity: 'Casablanca-Morocco 20040'
+    name: 'Shin-Line ТОиР',
+    shortName: 'Shin-Line ТОиР',
+    website: 'https://corp.shin-line.com:8081',
+    mail: 'admin@shin-line.com',
+    phone: '+7 775 123 45 67',
+    addressStreet: 'улица Султана Бейбарыса, 58',
+    addressCity: 'Республика Казахстан, Алматинская область, Илийский район, с. Байсерке'
   };
   const { isLicenseValid } = useSelector((state) => state.license);
   return {

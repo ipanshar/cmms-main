@@ -127,17 +127,21 @@ const AssetDowntimes = ({ asset }: PropsType) => {
       description: t('actions'),
       getActions: (params: GridRowParams) => {
         let actions = [
+          // @ts-ignore
           <GridActionsCellItem
             key="edit"
             icon={<EditTwoToneIcon fontSize="small" color="primary" />}
             onClick={() => handleEdit(Number(params.id))}
             label={t('edit_downtime')}
+            showInMenu={false}
           />,
+          // @ts-ignore
           <GridActionsCellItem
             key="delete"
             icon={<DeleteTwoToneIcon fontSize="small" color="error" />}
             onClick={() => handleDelete(Number(params.id))}
             label={t('remove_downtime')}
+            showInMenu={false}
           />
         ];
         if (!hasEditPermission(PermissionEntity.ASSETS, asset)) actions = [];
