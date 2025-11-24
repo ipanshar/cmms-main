@@ -1,110 +1,186 @@
-import { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import {
+  Box,
+  Container,
+  Grid,
+  Link,
+  styled,
+  Typography,
+  Stack
+} from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import useMediaQuery from '@mui/material/useMediaQuery';
+import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
+import Hero from './Hero';
+import Highlights from './Highlights';
+import NavBar from '../../components/NavBar';
+import { useEffect } from 'react';
+import { isCloudVersion } from '../../config';
 import { useBrand } from '../../hooks/useBrand';
+import { useSelector } from '../../store';
+import {
+  Facebook,
+  Twitter,
+  Instagram,
+  Phone,
+  Mail,
+  Sms,
+  LinkedIn
+} from '@mui/icons-material';
+
+const OverviewWrapper = styled(Box)(
+  ({ theme }) => `
+    overflow: auto;
+    background: ${theme.palette.common.white};
+    flex: 1;
+    overflow-x: hidden;
+`
+);
+
+const FooterWrapper = styled(Box)(
+  ({ theme }) => `
+    background: ${theme.colors.alpha.black[100]};
+    color: ${theme.colors.alpha.white[70]};
+    padding: ${theme.spacing(4)} 0;
+`
+);
+
+const FooterLink = styled(Link)(
+  ({ theme }) => `
+    color: ${theme.colors.alpha.white[70]};
+    text-decoration: none;
+
+    &:hover {
+      color: ${theme.colors.alpha.white[100]};
+      text-decoration: underline;
+    }
+`
+);
+
+const SectionHeading = styled(Typography)(
+  ({ theme }) => `
+    font-weight: ${theme.typography.fontWeightBold};
+    color: ${theme.colors.alpha.white[100]};
+    margin-bottom: ${theme.spacing(2)};
+`
+);
+
+function Footer() {
+  const navigate = useNavigate();
+  return (
+    <FooterWrapper>
+      <Container maxWidth="lg">
+        <Grid container spacing={4}>
+          <Grid item xs={12} md={3}>
+            <SectionHeading variant="h5">Contact</SectionHeading>
+            <Stack spacing={2}>
+              <Box
+                sx={{ cursor: 'pointer' }}
+                onClick={() =>
+                  (window.location.href = 'mailto:contact@atlas-cmms.com')
+                }
+                display="flex"
+                alignItems="center"
+              >
+                <Mail fontSize="small" />
+                <Typography variant="body2" sx={{ ml: 1 }}>
+                  contact@atlas-cmms.com
+                </Typography>
+              </Box>
+              <Box display="flex" alignItems="center">
+                <Phone fontSize="small" />
+                <Typography variant="body2" sx={{ ml: 1 }}>
+                  +212630690050
+                </Typography>
+              </Box>
+              <Box display="flex" alignItems="center">
+                <Sms fontSize="small" />
+                <Typography variant="body2" sx={{ ml: 1 }}>
+                  +212630690050
+                </Typography>
+              </Box>
+            </Stack>
+          </Grid>
+          <Grid item xs={12} md={3}>
+            <SectionHeading variant="h5">Company</SectionHeading>
+            <Stack spacing={2}>
+              <FooterLink href="/pricing">Pricing</FooterLink>
+              <FooterLink href="/privacy">Privacy Policy</FooterLink>
+              <FooterLink href="/terms-of-service">Terms of Service</FooterLink>
+            </Stack>
+          </Grid>
+          <Grid item xs={12} md={3}>
+            <SectionHeading variant="h5">Social</SectionHeading>
+            <Stack direction="row" spacing={2}>
+              <FooterLink href="https://www.linkedin.com/company/91710999">
+                <LinkedIn />
+              </FooterLink>
+              {/*<FooterLink href="#">*/}
+              {/*  <Twitter />*/}
+              {/*</FooterLink>*/}
+              {/*<FooterLink href="#">*/}
+              {/*  <Instagram />*/}
+              {/*</FooterLink>*/}
+            </Stack>
+          </Grid>
+          <Grid item xs={12} md={3}>
+            <SectionHeading variant="h5">Mobile apps</SectionHeading>
+            <Stack spacing={1} direction="row">
+              <img
+                style={{ cursor: 'pointer' }}
+                onClick={() =>
+                  (window.location.href =
+                    'https://play.google.com/store/apps/details?id=com.atlas.cmms')
+                }
+                width={'150px'}
+                src={'/static/images/overview/playstore-badge.png'}
+              />
+              <img
+                style={{ cursor: 'pointer' }}
+                onClick={() =>
+                  (window.location.href =
+                    'https://apps.apple.com/us/app/atlas-cmms/id6751547284')
+                }
+                width={'150px'}
+                src={'/static/images/overview/app_store_badge.svg.webp'}
+              />
+            </Stack>
+          </Grid>
+        </Grid>
+        <Box mt={4} textAlign="center">
+          <Typography variant="body2">
+            © {new Date().getFullYear()} Intelloop. All rights reserved.
+          </Typography>
+        </Box>
+      </Container>
+    </FooterWrapper>
+  );
+}
 
 function Overview() {
+  const { t }: { t: any } = useTranslation();
   const navigate = useNavigate();
-  const { logo } = useBrand();
-  const isMobile = useMediaQuery('(max-width:600px)');
-  const [clickLocked, setClickLocked] = useState(false);
+  const { isLicenseValid } = useSelector((state) => state.license);
+  const brandConfig = useBrand();
 
-  // Показываем лендинг и затем переводим в реальный CMMS
   useEffect(() => {
-    const t = setTimeout(() => navigate('/app'), 2000);
-    return () => clearTimeout(t);
-  }, [navigate]);
-
-  const imgSrc = logo?.dark || '/static/images/logo/logo.jpg';
-
-  const btnBaseStyle: React.CSSProperties = {
-    padding: isMobile ? '6px 12px' : '6px 14px',
-    background: 'white',
-    border: '1px solid #ccc',
-    borderRadius: 6,
-    cursor: clickLocked ? 'not-allowed' : 'pointer',
-    opacity: clickLocked ? 0.7 : 1,
-    transition: 'opacity .15s ease'
-  };
-
-  const safeNavigate = (path: string) => {
-    if (clickLocked) return;
-    setClickLocked(true);
-    navigate(path);
-    setTimeout(() => setClickLocked(false), 700); // небольшой анти-дубль
-  };
+    if (
+      !isCloudVersion ||
+      (isCloudVersion && isLicenseValid != null && !isLicenseValid)
+    )
+      console.log('license is invalid');
+    // navigate('/account/login');
+  }, [isCloudVersion, isLicenseValid]);
 
   return (
-    <>
+    <OverviewWrapper>
       <Helmet>
-        <title>Shin-Line Cargo</title>
+        <title>{brandConfig.name}</title>
       </Helmet>
-      <div
-        style={{
-          backgroundColor: '#fafafa',
-          margin: 0,
-          minHeight: '100vh',
-          fontFamily: 'Arial, sans-serif'
-        }}
-      >
-        {/* Верхняя панель */}
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            padding: isMobile ? '10px 16px' : '15px 40px'
-          }}
-        >
-          <div>
-            <button
-              onClick={() => safeNavigate('/account/login')}
-              disabled={clickLocked}
-              style={{ ...btnBaseStyle, marginRight: 10 }}
-            >
-              Авторизоваться
-            </button>
-            <button
-              onClick={() => safeNavigate('/account/register')}
-              disabled={clickLocked}
-              style={{ ...btnBaseStyle, marginRight: 10 }}
-            >
-              Зарегистрироваться
-            </button>
-          </div>
-
-          <div>
-            <button disabled={clickLocked} style={{ ...btnBaseStyle, marginLeft: 10 }}>
-              Рус
-            </button>
-            <button disabled={clickLocked} style={{ ...btnBaseStyle, marginLeft: 10 }}>
-              Каз
-            </button>
-          </div>
-        </div>
-
-        {/* Центральный контейнер */}
-        <div
-          style={{
-            width: isMobile ? '90%' : '60%',
-            margin: isMobile ? '20px auto' : '60px auto',
-            background: 'white',
-            padding: isMobile ? 20 : 40,
-            borderRadius: 12,
-            boxShadow: '0 0 10px rgba(0,0,0,0.06)',
-            display: 'flex',
-            justifyContent: 'center'
-          }}
-        >
-          <img
-            src={imgSrc}
-            alt="Shin-Line logo"
-            style={{ width: isMobile ? '100%' : '80%', borderRadius: 10 }}
-          />
-        </div>
-      </div>
-    </>
+      <NavBar />
+      <Hero />
+      <Highlights />
+      <Footer />
+    </OverviewWrapper>
   );
 }
 

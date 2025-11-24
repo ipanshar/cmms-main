@@ -1,8 +1,8 @@
 {
-  "name": "shitline",
+  "name": "grash",
   "version": "0.1.0",
-  "title": "ShitLine",
-  "description": "ShitLine CMMS.",
+  "title": "Atlas CMMS",
+  "description": "High performance CMMS.",
   "private": true,
   "dependencies": {
     "@auth0/auth0-spa-js": "1.22.0",
@@ -114,8 +114,8 @@
     "yup": "0.32.11"
   },
   "scripts": {
-    "start": "cross-env NODE_ENV=development runtime-env-cra --env-file ./.env.example --config-name=./public/runtime-env.js && react-app-rewired start --max_old_space_size=6096",
-    "build": "react-app-rewired build",
+    "start": "cross-env NODE_ENV=development runtime-env-cra --config-name=./public/runtime-env.js && react-scripts start --max_old_space_size=6096",
+    "build": "react-scripts build",
     "eject": "react-scripts eject",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",

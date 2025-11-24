@@ -6,23 +6,23 @@ import {
 } from '../config';
 import { useSelector } from '../store';
 
-const DEFAULT_WHITE_LOGO = '/static/images/logo/logo.jpg';
-const DEFAULT_DARK_LOGO = '/static/images/logo/logo.jpg';
-const CUSTOM_DARK_LOGO = `${apiUrl}images/custom-logo.jpg`;
-const CUSTOM_WHITE_LOGO = `${apiUrl}images/custom-logo.jpg`;
+const DEFAULT_WHITE_LOGO = '/static/images/logo/logo-white.png';
+const DEFAULT_DARK_LOGO = '/static/images/logo/logo.png';
+const CUSTOM_DARK_LOGO = `${apiUrl}images/custom-logo.png`;
+const CUSTOM_WHITE_LOGO = `${apiUrl}images/custom-logo-white.png`;
 
 interface BrandConfig extends BrandRawConfig {
   logo: { white: string; dark: string };
 }
 export function useBrand(): BrandConfig {
   const defaultBrand: Omit<BrandConfig, 'logo'> = {
-    name: 'Шинлайн',
-    shortName: 'Шинлайн',
-    website: 'https://www.cmms.local',
-    mail: 'contact@cmms.local',
-    phone: '+7 000 000 00 00',
-    addressStreet: 'Шинлайн Street',
-    addressCity: 'Шинлайн City'
+    name: 'Atlas CMMS',
+    shortName: 'Atlas',
+    website: 'https://www.atlas-cmms.com',
+    mail: 'contact@atlas-cmms.com',
+    phone: '+212 6 30 69 00 50',
+    addressStreet: '410, Boulevard Zerktouni, Hamad, №1',
+    addressCity: 'Casablanca-Morocco 20040'
   };
   const { isLicenseValid } = useSelector((state) => state.license);
   return {
