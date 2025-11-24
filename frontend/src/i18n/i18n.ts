@@ -64,7 +64,7 @@ i18n
   .init({
     resources,
     keySeparator: false,
-    lng: 'en',
+    lng: 'ru',
     fallbackLng: 'en',
     react: {
       useSuspense: true

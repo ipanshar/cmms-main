@@ -60,7 +60,7 @@ export default function NavBar() {
         <Stack direction="row" alignItems="center">
           <Box alignItems={'center'}>
             <Logo />
-            {!isWhiteLabeled && (
+            {/* {!isWhiteLabeled && (
               <Typography
                 style={{ cursor: 'pointer' }}
                 fontSize={13}
@@ -70,7 +70,7 @@ export default function NavBar() {
               >
                 Powered by Intelloop
               </Typography>
-            )}
+            )} */}
           </Box>
           <Stack
             direction="row"
@@ -88,7 +88,7 @@ export default function NavBar() {
                 display: { xs: 'none', sm: 'flex' }
               }}
             >
-              <Button
+              {/* <Button
                 component={RouterLink}
                 to="/pricing"
                 sx={{
@@ -107,7 +107,7 @@ export default function NavBar() {
                 >
                   GitHub
                 </Button>
-              )}
+              )} */}
               <LanguageSwitcher />
               <Button
                 component={RouterLink}
@@ -115,7 +115,13 @@ export default function NavBar() {
                 variant="outlined"
                 sx={{
                   ml: 2,
-                  size: { xs: 'small', md: 'medium' }
+                  size: { xs: 'small', md: 'medium' },
+                  borderColor: '#dc2626',
+                  color: '#dc2626',
+                  '&:hover': {
+                    borderColor: '#b91c1c',
+                    backgroundColor: 'rgba(220, 38, 38, 0.04)'
+                  }
                 }}
               >
                 {t('login')}
@@ -126,7 +132,11 @@ export default function NavBar() {
                 variant="contained"
                 sx={{
                   ml: 2,
-                  size: { xs: 'small', md: 'medium' }
+                  size: { xs: 'small', md: 'medium' },
+                  backgroundColor: '#dc2626',
+                  '&:hover': {
+                    backgroundColor: '#b91c1c'
+                  }
                 }}
               >
                 {t('register')}
@@ -251,6 +261,14 @@ export default function NavBar() {
                         fullWidth
                         size="large"
                         onClick={handleMenuClose}
+                        sx={{
+                          borderColor: '#dc2626',
+                          color: '#dc2626',
+                          '&:hover': {
+                            borderColor: '#b91c1c',
+                            backgroundColor: 'rgba(220, 38, 38, 0.04)'
+                          }
+                        }}
                       >
                         {t('login')}
                       </Button>
@@ -261,6 +279,12 @@ export default function NavBar() {
                         fullWidth
                         size="large"
                         onClick={handleMenuClose}
+                        sx={{
+                          backgroundColor: '#dc2626',
+                          '&:hover': {
+                            backgroundColor: '#b91c1c'
+                          }
+                        }}
                       >
                         {t('register')}
                       </Button>
