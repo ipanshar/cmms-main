@@ -42,17 +42,16 @@ function LoginCover() {
               <Typography
                 variant="h2"
                 sx={{
-                  mb: 1
+                  mb: 1, color: '#dc2626'
                 }}
               >
                 {t('login')}
               </Typography>
               <Typography
                 variant="h4"
-                color="text.secondary"
                 fontWeight="normal"
                 sx={{
-                  mb: 3
+                  mb: 3, color: '#dc2626'
                 }}
               >
                 {t('login_description')}
@@ -63,13 +62,13 @@ function LoginCover() {
               <Typography
                 component="span"
                 variant="subtitle2"
-                color="text.primary"
+                color="text.secondary"
                 fontWeight="bold"
               >
                 {t('no_account_yet')}
               </Typography>{' '}
               <Box display={{ xs: 'block', md: 'inline-block' }}>
-                <Link component={RouterLink} to="/account/register">
+                <Link component={RouterLink} to="/account/register" sx={{ color: '#dc2626' }}>
                   <b>{t('signup_here')}</b>
                 </Link>
               </Box>

@@ -111,16 +111,16 @@ const LoginJWT: FC = () => {
             display={{ xs: 'block', md: 'flex' }}
             justifyContent="space-between"
           >
-            <Link component={RouterLink} to="/account/recover-password">
+            <Link component={RouterLink} to="/account/recover-password" sx={{ color: '#dc2626' }}>
               <b>{t('lost_password')}</b>
             </Link>
           </Box>
 
           <Button
             sx={{
-              mt: 3
+              mt: 3, mb: 2, backgroundColor: '#dc2626', '&:hover': { backgroundColor: '#b91c1c' }
             }}
-            color="primary"
+            // color='danger'
             startIcon={isSubmitting ? <CircularProgress size="1rem" /> : null}
             disabled={isSubmitting}
             type="submit"

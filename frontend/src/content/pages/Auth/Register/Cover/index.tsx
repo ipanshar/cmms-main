@@ -53,7 +53,7 @@ const SidebarWrapper = styled(Box)(
   top: 0;
   height: 100%;
   width: 500px;
-  background: ${theme.colors.gradients.blue3};
+  background: #dc2626;
 `
 );
 
@@ -72,7 +72,8 @@ const CardImg = styled(Card)(
     align-items: center;
     justify-content: center;
     position: relative;
-    border: 11px solid ${theme.colors.alpha.trueWhite[10]};
+    background: #dc2626;
+    border: 5px solid ${theme.colors.alpha.trueWhite[100]};
     transition: ${theme.transitions.create(['border'])};
     width: ${theme.spacing(16)};
     height: ${theme.spacing(16)};
@@ -156,7 +157,7 @@ function RegisterCover() {
   const [searchParams, setSearchParams] = useSearchParams();
   const { logo } = useBrand();
   const icons = {
-    Atlas: logo.dark,
+    Atlas: logo.dark2,
     FirebaseAuth: '/static/images/logo/firebase.svg',
     JWT: '/static/images/logo/jwt.svg',
     Amplify: '/static/images/logo/amplify.svg'
@@ -241,7 +242,7 @@ function RegisterCover() {
                       <Box textAlign="center">
                         <CardImg>
                           <img
-                            height={80}
+                            height={125}
                             alt="JSON Web Token"
                             src={slider.image}
                           />
@@ -280,7 +281,7 @@ function RegisterCover() {
                 <TypographyPrimary
                   variant="h3"
                   sx={{
-                    mb: 3
+                    mb: 3, color:'#fff'
                   }}
                 >
                   {t('register')}
@@ -316,7 +317,7 @@ function RegisterCover() {
           </Scrollbar>
         </SidebarWrapper>
         <MainContent>
-          <Container maxWidth="sm">
+          <Container maxWidth="sm" >
             <Card
               sx={{
                 p: 4,
@@ -327,7 +328,7 @@ function RegisterCover() {
                 <Typography
                   variant="h2"
                   sx={{
-                    mb: 1
+                    mb: 1, color:'#dc2626'
                   }}
                 >
                   {t('create_account')}
@@ -358,7 +359,7 @@ function RegisterCover() {
                   {t('account_already')}
                 </Typography>{' '}
                 <Box display={{ xs: 'block', md: 'inline-block' }}>
-                  <Link component={RouterLink} to="/account/login">
+                  <Link component={RouterLink} to="/account/login" sx={{ color:'#dc2626' }}>
                     <b>{t('signin_here')}</b>
                   </Link>
                 </Box>

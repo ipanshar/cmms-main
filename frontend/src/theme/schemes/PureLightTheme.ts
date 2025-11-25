@@ -4,7 +4,7 @@ import { customColors } from '../../config';
 import i18n from 'src/i18n/i18n';
 
 const themeColors = {
-  primary: '#5569ff',
+  primary: '#dc2626',
   secondary: '#6E759F',
   success: '#57CA22',
   warning: '#FFA319',
@@ -12,7 +12,7 @@ const themeColors = {
   info: '#33C2FF',
   black: '#223354',
   white: '#ffffff',
-  primaryAlt: '#000C57',
+  primaryAlt: '#b91c1c',
   ...customColors
 };
 

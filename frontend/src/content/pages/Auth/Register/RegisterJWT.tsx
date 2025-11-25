@@ -55,10 +55,10 @@ function RegisterJWT({
       email,
       firstName: '',
       lastName: '',
-      countryCode: null,
+      countryCode: { code: 'KZ', label: 'Kazakhstan', phone: '7' },
       phone: '',
       password: '',
-      companyName: '',
+      companyName: 'Шин-Лайн',
       employeesCount: invitationMode ? 0 : 5,
       terms: !!invitationMode,
       submit: null
@@ -326,7 +326,7 @@ function RegisterJWT({
                     <Typography variant="body2">
                       {t('i_accept')}{' '}
                       <Typography
-                        color={'primary'}
+                        sx={{ color: '#dc2626' }}
                         onClick={() => navigate('/terms-of-service')}
                         component="a"
                       >
@@ -343,7 +343,7 @@ function RegisterJWT({
               <Typography
                 color={'primary'}
                 onClick={() => navigate('/privacy')}
-                sx={{ cursor: 'pointer' }}
+                sx={{ cursor: 'pointer', color:'#dc2626' }}
               >
                 {t('privacy_policy')}
               </Typography>
@@ -351,9 +351,9 @@ function RegisterJWT({
           )}
           <Button
             sx={{
-              mt: 3
+              mt: 3, backgroundColor:'#dc2626', '&:hover': { backgroundColor: '#b91c1c' }
             }}
-            color="primary"
+            //color="primary"
             startIcon={isSubmitting ? <CircularProgress size="1rem" /> : null}
             disabled={isSubmitting}
             type="submit"

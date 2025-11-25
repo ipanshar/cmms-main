@@ -8,11 +8,12 @@ import { useSelector } from '../store';
 
 const DEFAULT_WHITE_LOGO = '/static/images/logo/logo-white.png';
 const DEFAULT_DARK_LOGO = '/static/images/logo/logo.png';
+const DEFAULT_DARK2_LOGO = '/static/images/logo/logo-white.png';
 const CUSTOM_DARK_LOGO = `${apiUrl}images/custom-logo.png`;
 const CUSTOM_WHITE_LOGO = `${apiUrl}images/custom-logo-white.png`;
 
 interface BrandConfig extends BrandRawConfig {
-  logo: { white: string; dark: string };
+  logo: { white: string; dark: string; dark2: string };
 }
 export function useBrand(): BrandConfig {
   const defaultBrand: Omit<BrandConfig, 'logo'> = {
@@ -40,7 +41,14 @@ export function useBrand(): BrandConfig {
           : isLicenseValid
           ? CUSTOM_DARK_LOGO
           : DEFAULT_DARK_LOGO
-        : DEFAULT_DARK_LOGO
+        : DEFAULT_DARK_LOGO,
+      dark2: customLogoPaths
+        ? isLicenseValid == null
+          ? null
+          : isLicenseValid
+          ? CUSTOM_DARK_LOGO
+          : DEFAULT_DARK2_LOGO
+        : DEFAULT_DARK2_LOGO
     },
     ...(isLicenseValid && brandRawConfig ? brandRawConfig : defaultBrand)
   };

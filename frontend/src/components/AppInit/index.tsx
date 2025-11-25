@@ -26,10 +26,10 @@ function AppInit() {
             style={{ cursor: 'pointer' }}
             fontSize={13}
             onClick={() => {
-              window.open('https://www.intel-loop.com/', '_blank');
+              window.open('https://www.shin-line.com/', '_blank');
             }}
           >
-            Powered by Intelloop
+            Shin-Line ТоиР
           </Typography>
         )}
       </Box>

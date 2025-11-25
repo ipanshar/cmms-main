@@ -24,7 +24,7 @@ const MenuWrapper = styled(Box)(
       text-transform: uppercase;
       font-weight: bold;
       font-size: ${theme.typography.pxToRem(12)};
-      color: ${theme.colors.alpha.trueWhite[50]};
+      color: ${theme.colors.alpha.trueWhite[100]};
       padding: ${theme.spacing(0, 2.5)};
       line-height: 1.4;
     }
@@ -53,7 +53,7 @@ const SubMenuWrapper = styled(Box)(
     
         .MuiButton-root {
           display: flex;
-          color: ${theme.colors.alpha.trueWhite[70]};
+          color: ${theme.colors.alpha.trueWhite[100]};
           background-color: transparent;
           width: 100%;
           justify-content: flex-start;
@@ -70,7 +70,7 @@ const SubMenuWrapper = styled(Box)(
           }
 
           .MuiButton-startIcon {
-            color: ${theme.colors.alpha.trueWhite[30]};
+            color: ${theme.colors.alpha.trueWhite[100]};
             font-size: ${theme.typography.pxToRem(20)};
             margin-right: ${theme.spacing(1)};
           }
