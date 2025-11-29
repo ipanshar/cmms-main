@@ -1,4 +1,6 @@
-const frJSON = {
+import { applyBranding } from '../branding';
+
+const frJSON = applyBranding({
   Blueprints: 'Plans',
   'Extended Sidebar': 'Barre latérale étendue',
   'Accent Sidebar': "Barre latérale d'accentuation",
@@ -1607,5 +1609,5 @@ const frJSON = {
   top_level: 'Niveau supérieur',
   no_results_found: 'Aucun résultat trouvé',
   no_sub_assets: 'Aucun sous-équipement'
-};
+});
 export default frJSON;

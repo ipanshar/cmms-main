@@ -1,3 +1,11 @@
 /api
 /frontend
 /images
+node_modules
+android/.gradle
+android/app/build
+android/build
+android/gradle
+ios/build
+.git
+*.log

@@ -1,4 +1,6 @@
-const ruJSON = {
+import { applyBranding } from '../branding';
+
+const ruJSON = applyBranding({
   DUPLICATE_OF: 'Дубликат',
   DUPLICATED_BY: 'Продублирован',
   RELATED_TO: 'Связан с',
@@ -1499,6 +1501,6 @@ const ruJSON = {
   upgrade_request_success:
     'Запрос на обновление получен! Мы скоро свяжемся с вами для оплаты',
   continue_with_sso: 'Продолжить через SSO',
-};
+});
 
 export default ruJSON;

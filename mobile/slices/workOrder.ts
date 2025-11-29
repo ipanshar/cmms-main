@@ -191,6 +191,7 @@ export const addWorkOrder =
           true
         );
       }
+      return workOrderResponse.id;
     };
 export const editWorkOrder =
   (id: number, workOrder): AppThunk =>

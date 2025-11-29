@@ -7,9 +7,9 @@ const googleServicesJson = process.env.GOOGLE_SERVICES_JSON;
 export default ({ config }: ConfigContext): { expo: ExpoConfig } => ({
   expo: {
     ...config,
-    name: 'Atlas CMMS',
-    slug: 'atlas-cmms',
-    version: '1.0.30',
+  name: 'Shin-Line ТОиР',
+    slug: 'shinline',
+    version: '1.0.31',
     orientation: 'portrait',
     icon: './assets/images/icon.png',
     scheme: 'atlascmms',
@@ -39,7 +39,7 @@ export default ({ config }: ConfigContext): { expo: ExpoConfig } => ({
         foregroundImage: './assets/images/adaptive-icon.png',
         backgroundColor: '#ffffff'
       },
-      versionCode: 30,
+      versionCode: 31,
       package: 'com.atlas.cmms',
       googleServicesFile: googleServicesJson ?? './google-services.json',
       runtimeVersion: '1.0.0'
@@ -50,7 +50,7 @@ export default ({ config }: ConfigContext): { expo: ExpoConfig } => ({
     extra: {
       API_URL: apiUrl,
       eas: {
-        projectId: '803b5007-0c60-4030-ac3a-c7630b223b92'
+        projectId: 'cd4a7c56-4a5b-4c6f-8e38-5b5eafcbab3e'
       }
     },
     plugins: [
@@ -58,7 +58,7 @@ export default ({ config }: ConfigContext): { expo: ExpoConfig } => ({
       [
         'expo-barcode-scanner',
         {
-          cameraPermission: 'Allow Atlas to access camera.'
+          cameraPermission: 'Allow Shin-Line ТОиР to access camera.'
         }
       ]
     ]

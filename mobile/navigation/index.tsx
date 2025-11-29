@@ -571,7 +571,7 @@ function BottomTabNavigator({ navigation }: RootTabScreenProps<'Home'>) {
                   fontWeight: 'bold'
                 }}
               >
-                Atlas
+                Shin-Line ТОиР
               </Text>
             ),
             title: t('home'),

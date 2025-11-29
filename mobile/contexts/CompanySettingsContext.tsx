@@ -160,7 +160,16 @@ export const CompanySettingsProvider: FC<{ children: ReactNode }> = (props) => {
               if (fields[fieldIndexInFields].multiple) {
                 yupSchema = Yup.array().required(requiredMessage);
               } else {
-                yupSchema = Yup.object().required(requiredMessage).nullable();
+                // Priority field can be either string or object
+                if (fields[fieldIndexInFields].type2 === 'priority') {
+                  yupSchema = Yup.mixed()
+                    .test('is-valid-priority', requiredMessage, (value) => {
+                      return value !== null && value !== undefined && value !== '';
+                    })
+                    .nullable();
+                } else {
+                  yupSchema = Yup.object().required(requiredMessage).nullable();
+                }
               }
               break;
             default:

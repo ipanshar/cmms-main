@@ -1,4 +1,6 @@
-const locale = {
+import { applyBranding } from '../branding';
+
+const locale = applyBranding({
   DUPLICATE_OF: 'Duplicate of',
   DUPLICATED_BY: 'Duplicated by',
   RELATED_TO: 'Related to',
@@ -80,7 +82,7 @@ const locale = {
   'eam.descriptions.0':
     'Frustrated with trying to organize the chaotic mess of company’s equipment, wondering if the equipment has been properly taken care of, not knowing what they cost to maintain and all the other headaches that come with managing assets?',
   'eam.descriptions.1':
-    'Atlas CMMS’s Enterprise Asset Management module can be used for anywhere between 10 to 1,000,000 Assets, allowing you to track exactly what you want, the way you want to, in an easy-to-use and searchable tree structure.',
+    'Shin-Line ТОиР’s Enterprise Asset Management module can be used for anywhere between 10 to 1,000,000 Assets, allowing you to track exactly what you want, the way you want to, in an easy-to-use and searchable tree structure.',
   'eam.checks.0':
     'Know the health of your assets at every point of time and what they are costing you',
   'eam.checks.1': 'View complete and detailed Maintenance Logs.',
@@ -1455,5 +1457,5 @@ const locale = {
   no_results_found: 'No results found',
   no_sub_assets: 'No sub-assets',
   no_assets_available: 'No assets available'
-};
+});
 export default locale;

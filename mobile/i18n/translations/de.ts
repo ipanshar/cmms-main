@@ -1,4 +1,6 @@
-const deJSON = {
+import { applyBranding } from '../branding';
+
+const deJSON = applyBranding({
   DUPLICATE_OF: 'Duplikat von ',
   DUPLICATED_BY: 'Dupliziert von ',
   RELATED_TO: 'Verwandt mit ',
@@ -80,7 +82,7 @@ const deJSON = {
   'eam.descriptions.0':
     'Frustriert, die chaotische Unordnung der Unternehmensausrüstung zu organisieren, sich zu fragen, ob die Ausrüstung richtig gepflegt wurde, nicht zu wissen, was sie kosten, um sie zu warten, und all die anderen Kopfschmerzen, die mit der Verwaltung von Anlagen einhergehen? ',
   'eam.descriptions.1':
-    'Das Enterprise Asset Management-Modul von Atlas CMMS kann für 10 bis 1.000.000 Anlagen verwendet werden, sodass Sie genau das verfolgen können, was Sie möchten, auf die Weise, wie Sie es möchten, in einer benutzerfreundlichen und durchsuchbaren Baumstruktur. ',
+    'Das Enterprise Asset Management-Modul von Shin-Line ТОиР kann für 10 bis 1.000.000 Anlagen verwendet werden, sodass Sie genau das verfolgen können, was Sie möchten, auf die Weise, wie Sie es möchten, in einer benutzerfreundlichen und durchsuchbaren Baumstruktur. ',
   'eam.checks.0':
     'Kennen Sie den Zustand Ihrer Anlagen jederzeit und was sie kosten ',
   'eam.checks.1': 'Komplette und detaillierte Wartungsprotokolle anzeigen. ',
@@ -1532,6 +1534,6 @@ const deJSON = {
   no_results_found: 'Keine Ergebnisse gefunden',
   no_sub_assets: 'Keine Unter-Assets',
   no_assets_available: 'Keine verfügbaren Assets'
-};
+});
 
 export default deJSON;

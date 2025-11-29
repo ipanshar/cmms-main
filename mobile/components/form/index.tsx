@@ -457,16 +457,18 @@ export default function Form(props: OwnProps) {
         validateOnChange={true}
         validateOnBlur={true}
         initialValues={props.values || {}}
-        onSubmit={(
+        onSubmit={async (
           values,
           { resetForm, setErrors, setStatus, setSubmitting }
         ) => {
-          setSubmitting(true);
-          props.onSubmit(values).finally(() => {
-            // resetForm();
+          try {
+            await props.onSubmit(values);
             setStatus({ success: true });
+          } catch (error) {
+            setErrors({ submit: error?.message || 'An error occurred' });
+          } finally {
             setSubmitting(false);
-          });
+          }
         }}
       >
         {(formik) => (
@@ -620,7 +622,9 @@ export default function Form(props: OwnProps) {
             ))}
             <Button
               style={{ marginVertical: 20, zIndex: 10 }}
-              onPress={() => formik.handleSubmit()}
+              onPress={() => {
+                formik.handleSubmit();
+              }}
               mode="contained"
               loading={formik.isSubmitting}
               disabled={Boolean(formik.errors.submit) || formik.isSubmitting}

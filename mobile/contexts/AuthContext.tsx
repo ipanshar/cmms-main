@@ -603,7 +603,7 @@ export const AuthProvider: FC<AuthProviderProps> = (props) => {
         name: 'default',
         importance: Notifications.AndroidImportance.MAX,
         vibrationPattern: [0, 250, 250, 250],
-        lightColor: '#5569ff'
+        lightColor: '#dc2626'
       });
     }
 

@@ -13,6 +13,7 @@ import itJSON from './translations/it';
 import ptBRJSON from './translations/pt_BR';
 import svJSON from './translations/sv';
 import ruJSON from './translations/ru';
+import { brandName, shortBrandName } from './branding';
 const resources = {
   de: { translation: deJSON },
   en: { translation: locale },
@@ -40,7 +41,11 @@ i18n
       useSuspense: true
     },
     interpolation: {
-      escapeValue: false
+      escapeValue: false,
+      defaultVariables: {
+        brandName,
+        shortBrandName
+      }
     }
   });
 

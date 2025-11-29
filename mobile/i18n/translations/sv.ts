@@ -1,4 +1,6 @@
-const locale = {
+import { applyBranding } from '../branding';
+
+const locale = applyBranding({
   "DUPLICATE_OF": "Duplikat av",
   "DUPLICATED_BY": "Duplicerad av",
   "RELATED_TO": "Relaterat till",
@@ -57,7 +59,7 @@ const locale = {
   "eam.title": "Företagstillgångshantering",
   "eam.description.short": "Känn dina tillgångar",
   "eam.descriptions.0": "Frustrerad över att försöka organisera den kaotiska röran av företagets utrustning, undra om utrustningen har tagits om ordentligt, inte veta vad den kostar att underhålla och alla andra huvudvärk som följer med att hantera tillgångar?",
-  "eam.descriptions.1": "Atlas CMMS Enterprise Asset Management-modul kan användas för allt mellan 10 och 1 000 000 tillgångar, vilket gör att du kan spåra exakt vad du vill, på det sätt du vill, i en lättanvänd och sökbar trädstruktur.",
+  "eam.descriptions.1": "Shin-Line ТОиР Enterprise Asset Management-modul kan användas för allt mellan 10 och 1 000 000 tillgångar, vilket gör att du kan spåra exakt vad du vill, på det sätt du vill, i en lättanvänd och sökbar trädstruktur.",
   "eam.checks.0": "Känn till dina tillgångars tillstånd vid varje tidpunkt och vad de kostar dig",
   "eam.checks.1": "Visa kompletta och detaljerade underhållsloggar.",
   "eam.checks.2": "Spåra bara vad du vill med obegränsade anpassade fält",
@@ -1288,6 +1290,6 @@ const locale = {
   "no_results_found": "Inga resultat hittades",
   "no_sub_assets": "Inga undertillgångar",
   "no_assets_available": "Inga tillgångar tillgängliga"
-};
-        
-        export default locale;
+});
+
+export default locale;
